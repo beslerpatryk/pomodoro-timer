@@ -10,4 +10,22 @@ body {
 	min-height: 100vh;
 	padding: 2rem;
 	background-color: hsl(0, 0%, 95%);
+	color: #131311;
+	font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+	margin: 15px 0;
+	font-weight: 600;
+	font-size: 28px;
+	text-align: center;
+}
+
+input {
+	margin: 15px 0;
+	font-size: 18px;
+	padding: 5px;
+	background: rgba(0, 0, 0, 0.11);
+	border: none;
+	transition: 0.5s ease-in-out;
 }
