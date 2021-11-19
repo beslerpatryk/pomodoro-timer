@@ -29,3 +29,10 @@ input {
 	border: none;
 	transition: 0.5s ease-in-out;
 }
+
+.clock {
+	padding: 3px;
+	display: flex;
+	position: relative;
+	justify-content: center;
+}
