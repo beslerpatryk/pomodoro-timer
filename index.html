@@ -8,17 +8,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
-        <h1>Pomodoro ⏲️ with 🛎️</h1>
+        <!-- <h1>Pomodoro ⏲️ with 🛎️</h1> -->
         <div class="timer-container">
             <div class="mins">0</div>
             <div>:</div>
             <div class="secs">00</div>
         </div>
-        <audio src="https://soundbible.com/mp3/service-bell_daniel_simion.mp3"></audio>
-        <svg class="progress-ring" height="120" width="120">
+        <div class="state">Focus</div>
+
+
+        <!-- <audio src="https://soundbible.com/mp3/service-bell_daniel_simion.mp3"></audio> -->
+        <!-- <svg class="progress-ring" height="120" width="120">
             <circle 
                 class="progress-ring__circle"
                 stroke-width="8"
@@ -27,7 +31,7 @@
                 cx="60"
                 cy="60"
             />
-        </svg>
+        </svg> -->
         <div class="btn-group">
             <button id="start">Start</button>
             <button id="pause">Pause</button>
@@ -35,8 +39,10 @@
             <button id="reset">Reset</button>
         </div>
         <form action=".">
-            <input type="number" value="1" id="focusTime">
-            <input type="number" value="1" id="breakTime">
+            <input type="number" placeholder="25" id="focusTime">
+            <input type="number" placeholder="5" id="shortBreak">
+            <input type="number" placeholder="15" id="longBreak">
+            <input type="number" placeholder="10" id="intervals">
             <button type="submit">Save Settings</button>
         </form>
 
