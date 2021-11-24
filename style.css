@@ -12,6 +12,17 @@ body {
 	background-color: hsl(0, 0%, 95%);
 	color: #131311;
 	font-family: "Montserrat", sans-serif;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+main {
+	/* display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center; */
 }
 
 h1 {
@@ -21,52 +32,12 @@ h1 {
 	text-align: center;
 }
 
-input {
-	margin: 15px 0;
-	font-size: 18px;
-	padding: 5px;
-	background: rgba(0, 0, 0, 0.11);
-	border: none;
-	transition: 0.5s ease-in-out;
-}
-
 .btn-group {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 10%;
 	margin: 35px 0;
-}
-
-.clock {
-	padding: 3px;
-	display: flex;
-	position: relative;
-	justify-content: center;
-}
-
-button {
-	margin: 5px;
-	padding: 10px;
-	border: none;
-	font-size: 1.25rem;
-	transition: 0.5s ease-in-out;
-}
-
-form {
-	height: 20%;
-	display: flex;
-	flex-direction: column;
-	padding: 0;
-	max-width: 370px;
-	margin: 5px auto;
-}
-
-form button {
-	background: rgb(255, -25, -140);
-	width: 100%;
-	margin: 5px 0;
-	color: white;
 }
 
 .start {
@@ -92,15 +63,25 @@ form button {
 	color: white;
 }
 
-.clock {
+.timer-container {
 	padding: 3px;
 	display: flex;
 	position: relative;
 	justify-content: center;
 	align-items: center;
-	font-weight: bold;
+	font-weight: 500;
 	height: 30%;
-	font-size: 24px;
+	font-family: inherit;
+	font-size: 4rem;
+}
+
+.state {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	font-weight: 500;
+	font-size: 1.5rem;
 }
 
 .progress-ring {
@@ -115,6 +96,39 @@ form button {
 	transform-origin: 50% 50%;
 	stroke: rgb(51, 62, 255);
 	transition: 0.5s;
+}
+
+button {
+	margin: 5px;
+	padding: 10px;
+	border: none;
+	font-size: 1.25rem;
+	transition: 0.5s ease-in-out;
+}
+
+form {
+	height: 20%;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	max-width: 370px;
+	margin: 5px auto;
+}
+
+input {
+	margin: 15px 0;
+	font-size: 18px;
+	padding: 5px;
+	background: rgba(0, 0, 0, 0.11);
+	border: none;
+	transition: 0.5s ease-in-out;
+}
+
+form button {
+	background: rgb(255, -25, -140);
+	width: 100%;
+	margin: 5px 0;
+	color: white;
 }
 
 footer {
