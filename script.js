@@ -1,14 +1,41 @@
 const timerEl = document.querySelector(".timer-container")
+// Buttons
+const startBtn = document.getElementById("start")
 const pauseBtn = document.getElementById("pause")
 const resumeBtn = document.getElementById("resume")
+const resetBtn = document.getElementById("reset")
 
-const settings = {
-    //in minutes
-    pomodoro: 1,
-    shortBreak: 5,
-    longBreak: 25,
-    intervals: 10,
+// Put default settings inside localStorage
+if(!localStorage.focusTime){
+    localStorage.setItem("focusTime", 25);
+    localStorage.setItem("shortBreak", 5);
+    localStorage.setItem("longBreak", 15);
+    localStorage.setItem("intervals", 10);
 }
+
+// Initialize default settings (in minutes) if localStorage is empty
+const settings = {
+    pomodoro: localStorage.getItem("focusTime"),
+    shortBreak: localStorage.getItem("shortBreak"),
+    longBreak: localStorage.getItem("longBreak"),
+    intervals: localStorage.getItem("intervals"),
+
+    updateSettings(){
+        this.pomodoro = localStorage.getItem("focusTime");
+        this.shortBreak = localStorage.getItem("shortBreak");
+        this.longBreak = localStorage.getItem("longBreak");
+        this.intervals = localStorage.getItem("intervals");
+    }
+}
+
+document.querySelector("form").addEventListener("submit", e => {
+    e.preventDefault();
+    const focusTime = document.getElementById("focusTime")
+    const breakTime = document.getElementById("breakTime")
+    localStorage.setItem("focusTime", focusTime.value);
+    localStorage.setItem("breakTime", breakTime.value);
+    settings.updateSettings();
+})
 
 const timer = {
     status: "run",
@@ -60,15 +87,34 @@ const timer = {
             timerEl.innerText = `${this.pad(minutesRemaining)}:${this.pad(secondsRemaining)}`               
             this.count(minutesRemaining+1, secondsRemaining-1)
         }
+    },
+
+    reset(){
+        for (var i = 1; i < 99999; i++){
+            window.clearInterval(i);
+        }
+        timerEl.innerText = `${this.pad(settings.pomodoro)}:${this.pad(0)}`;        
+        this.status = "run";
     }
 }
 
+timerEl.innerText = `${timer.pad(settings.pomodoro)}:${timer.pad(0)}`;        
+
+
+startBtn.addEventListener('click', ()=>{
+    timer.start(0, settings);
+    startBtn.disabled = true;
+})
+
 pauseBtn.addEventListener('click', ()=>{
-    timer.pause()
+    timer.pause();
 })
 
 resumeBtn.addEventListener('click', ()=>{
-    timer.resume()
+    timer.resume();
 })
 
-timer.start(0, settings)
+resetBtn.addEventListener('click', ()=>{
+    timer.reset();
+    startBtn.disabled = false;
+})
