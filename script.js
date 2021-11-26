@@ -63,6 +63,7 @@ const timer = {
                 secondsRemaining = 59
             }else if(minutesRemaining === 0 && secondsRemaining ===0){
                 clearInterval(counter)
+                // TRACK FINISHED INTERVAL
             }
 
             timerEl.innerText = `${this.pad(minutesRemaining)}:${this.pad(secondsRemaining)}`               
@@ -70,12 +71,8 @@ const timer = {
         }, 1000)
     },
 
-    start(state, settings){
-        switch(state){
-            case 0: this.count(settings.pomodoro); break;
-            case 1: this.count(settings.shortBreak); break;
-            case 2: this.count(settings.longBreak); break;
-        }
+    start(settings){
+        this.count(settings.pomodoro);
     },
 
     pause(){
@@ -108,7 +105,7 @@ timerEl.innerText = `${timer.pad(settings.pomodoro)}:${timer.pad(0)}`;
 
 
 startBtn.addEventListener('click', ()=>{
-    timer.start(0, settings);
+    timer.start(settings);
     startBtn.disabled = true;
 })
 
