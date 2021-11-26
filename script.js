@@ -30,10 +30,16 @@ const settings = {
 
 document.querySelector("form").addEventListener("submit", e => {
     e.preventDefault();
-    const focusTime = document.getElementById("focusTime")
-    const shortBreak = document.getElementById("shortBreak")
+    const focusTime = document.getElementById("focusTime");
+    const shortBreak = document.getElementById("shortBreak");
+    const longBreak = document.getElementById("longBreak");
+    const intervals = document.getElementById("intervals");
+
     localStorage.setItem("focusTime", focusTime.value);
     localStorage.setItem("shortBreak", shortBreak.value);
+    localStorage.setItem("longBreak", longBreak.value);
+    localStorage.setItem("intervals", intervals.value);
+
     settings.updateSettings();
 })
 
