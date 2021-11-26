@@ -31,9 +31,9 @@ const settings = {
 document.querySelector("form").addEventListener("submit", e => {
     e.preventDefault();
     const focusTime = document.getElementById("focusTime")
-    const breakTime = document.getElementById("breakTime")
+    const shortBreak = document.getElementById("shortBreak")
     localStorage.setItem("focusTime", focusTime.value);
-    localStorage.setItem("breakTime", breakTime.value);
+    localStorage.setItem("shortBreak", shortBreak.value);
     settings.updateSettings();
 })
 
